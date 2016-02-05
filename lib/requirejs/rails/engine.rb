@@ -44,6 +44,7 @@ module Requirejs
       ### Initializers
       initializer "requirejs.tag_included_state" do |app|
         ActiveSupport.on_load(:action_controller) do
+          helper Requirejs::RequirejsHelper
           ::ActionController::Base.class_eval do
             attr_accessor :requirejs_included
           end
